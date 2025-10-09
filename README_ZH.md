@@ -72,8 +72,8 @@ DeepResearch-ReportEval/
 
 ```bash
 # 克隆项目
-git clone https://github.com/your-username/DeepResearch-ReportEval.git
-cd DeepResearch-ReportEval
+git clone https://github.com/HKUDS/DeepResearch-Eval.git
+cd DeepResearch-Eval
 
 # 安装依赖
 pip install openai json-repair firecrawl-python python-dotenv tqdm requests dashscope
