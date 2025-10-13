@@ -242,3 +242,19 @@ example/judge_fact_result/
 ## 📄 License
 
 **Released under the [MIT License](LICENSE)**
+
+---
+
+
+## 🌟Citation
+
+```python
+@article{fan2025understanding,
+  title={Understanding DeepResearch via Reports},
+  author={Fan, Tianyu and Niu, Xinyao and Zheng, Yuxiang and Zhang, Fengji and Huang, Chengen and Chen, Bei and Lin, Junyang and Huang, Chao},
+  journal={arXiv preprint arXiv:2510.07861},
+  year={2025}
+}
+```
+
+**Thank you for your interest in our work!**
