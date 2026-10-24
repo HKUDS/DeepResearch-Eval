@@ -197,10 +197,11 @@ exp/score_results/
 ├── def456ghi789.json    # 主题2的评测结果
 └── ...
 
+checkpoint.json         # 断点文件（项目根目录）
+
 exp/
 ├── judge.txt            # 详细日志
-├── judge.json           # 进度记录
-└── checkpoint.json      # 断点文件
+└── judge.json           # 进度记录
 ```
 
 ### 🔍 事实核查输出

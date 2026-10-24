@@ -325,9 +325,10 @@ def main():
         for line in file:
             all_json_data.append(json.loads(line))
         
-    # Update checkpoint data
-    checkpoint_manager.checkpoint_data['processed_files'] = []
-    checkpoint_manager.checkpoint_data['current_index'] = 0
+    # Resume only when requested; otherwise start with a fresh checkpoint.
+    if not args.resume:
+        checkpoint_manager.checkpoint_data['processed_files'] = []
+        checkpoint_manager.checkpoint_data['current_index'] = 0
     checkpoint_manager.checkpoint_data['total_files'] = len(all_json_data)
     
     # Get processed file list

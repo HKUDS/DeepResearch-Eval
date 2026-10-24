@@ -197,10 +197,11 @@ exp/score_results/
 ├── def456ghi789.json    # Evaluation result for topic 2
 └── ...
 
+checkpoint.json         # Checkpoint state (project root)
+
 exp/
 ├── judge.txt            # Detailed logs
-├── judge.json           # Progress records
-└── checkpoint.json      # Checkpoint state
+└── judge.json           # Progress records
 ```
 
 ### 🔍 Fact Checking Outputs
