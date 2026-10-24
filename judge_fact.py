@@ -101,6 +101,11 @@ def main():
         os.makedirs(os.path.dirname(output_abs) or ".", exist_ok=True)
         out_jsonl = output_abs
 
+    same_path = os.path.normcase(input_abs) == os.path.normcase(os.path.abspath(out_jsonl))
+    same_file = os.path.exists(out_jsonl) and os.path.samefile(input_abs, out_jsonl)
+    if same_path or same_file:
+        raise ValueError("--outputpath must not refer to the input file")
+
     count = 0
     with open(input_abs, "r", encoding="utf-8") as fin, \
          open(out_jsonl, "w", encoding="utf-8") as fout:
