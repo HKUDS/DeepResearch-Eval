@@ -99,11 +99,14 @@ Given a piece of web content and a sentence from a report, please determine whet
   - Or the web content clearly contradicts the statement, allowing the statement to be determined as false
 
 
-Please return the analysis result in JSON format:
+Return exactly one valid JSON object:
+```json
 {
-    "is_factual": -1/0/1, # -1: not supported, 0: partially supported, 1: fully supported
-    "sentence_support": "Specific sentences from the web content that can support this fact"
+    "is_factual": 1,
+    "sentence_support": "Exact supporting sentence from the web content"
 }
+```
+`is_factual` must be the integer -1 (not supported), 0 (partially supported), or 1 (fully supported). Use an empty string for `sentence_support` when no relevant support exists; otherwise quote specific sentence(s) from the supplied web content.
 """
 
 FACT_CHECK_USER_PROMPT = """
@@ -236,22 +239,20 @@ Output:
 
 
 # Output Format
-Must output a JSON object with the following fields:
+Return exactly one valid JSON object with these fields:
+- `score`: integer from 0 to 4.
+- `explanation`: string describing the score and evidence.
+- `repetitions_found`: array of strings containing the repeated content.
+- `confidence`: percentage string such as `"90%"`.
 
-{
-    "score": "0-4 score based on above criteria",
-    "explanation": "Explanation of score with specific examples of repetition",
-    "repetitions_found": [the repeated content1,the repeated content2,the repeated content3,...],
-    "confidence": "Confidence in assessment (0%-100%)"
-}
-
-# Output Example:
+```json
 {
     "score": 3,
-    "explanation": "Score of 3 given due to low overall repetition, with only one unnecessary repetition in describing [concept].",
-    "repetitions_found": [the repeated content1,the repeated content2,the repeated content3,...],
-    "confidence": 90
+    "explanation": "The paragraphs share one minor repeated idea.",
+    "repetitions_found": ["Both paragraphs repeat the same idea."],
+    "confidence": "90%"
 }
+```
 
 
 """
