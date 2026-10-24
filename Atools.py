@@ -39,7 +39,7 @@ class WebScrapingJinaTool:
             jina_url = f'https://r.jina.ai/{url}'
             headers = {
                 "Accept": "application/json",
-                'Authorization': self.api_key,
+                'Authorization': f'Bearer {self.api_key}',
                 'X-Timeout': "60000",
                 "X-With-Generated-Alt": "true",
             }
@@ -164,7 +164,7 @@ class SearchAgent:
             str: Markdown text with links removed, preserving only the link text
         """
         
-        pattern = r'\((http?://[^)]*)\)'
+        pattern = r'\((https?://[^)]*)\)'
         cleaned_text = re.sub(pattern, '', markdown_text)
         
         return cleaned_text
